@@ -28,8 +28,18 @@ public class Account {
      * @throws InsufficientFundException
      */
     public int withdraw(int amount) throws InsufficientFundException {
-            accountBalance=accountBalance-amount;
-        return accountBalance;
+        try {
+            accountBalance = accountBalance - amount;
+            {
+                System.out.println("withdraw amount =" + amount);
+                System.out.println("Account Balance =" + accountBalance);
+
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        return getAccountBalance();
     }
 
 
